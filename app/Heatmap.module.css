@@ -1,0 +1,296 @@
+.heatmapContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.heatmapHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.viewOptions {
+  display: flex;
+  align-items: center;
+}
+
+.viewOptions button {
+  margin-right: 8px;
+  padding: 6px 12px;
+  border: none;
+  background-color: #e6e6e6;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.viewOptions button:hover {
+  background-color: #d6d6d6;
+}
+
+.viewOptions .active {
+  background-color: #28a745;
+  color: white;
+}
+
+.arrows {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  margin-left: 10px;
+  position: absolute;
+  right: 50px;
+}
+
+.arrows button {
+  background-color: #e6e6e6;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-right: 4px;
+  border-radius: 4px;
+}
+
+.arrows button:hover {
+  background-color: #d6d6d6;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.filter span {
+  font-size: 12px;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.filter select {
+  padding: 6px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.heatmapGrid {
+  display: flex;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skillsColumn {
+  width: 100%;
+  background-color: #f9f9f9;
+}
+
+.skillCell {
+  padding: 10px 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.consensusColumn {
+  width: 60px;
+  background-color: #f9f9f9;
+}
+
+.consensusHeader {
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #f9f9f9;
+}
+
+.consensusCell {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.consensusCell:hover {
+  opacity: 0.9;
+}
+
+.candidatesGridWrapper {
+  flex: 1;
+  overflow-x: auto;
+}
+
+.candidatesGrid {
+  display: flex;
+  flex-direction: column;
+  min-width: fit-content;
+}
+
+.candidateHeader {
+  display: flex;
+}
+
+.candidateCell {
+  width: 40px;
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #f9f9f9;
+}
+
+.scoresGrid {
+  display: flex;
+}
+
+.candidateScores {
+  display: flex;
+  flex-direction: column;
+}
+
+.scoreCell {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.scoreCell:hover {
+  opacity: 0.9;
+}
+
+.compareButton {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.compareButton:hover {
+  background-color: #218838;
+}
+
+.heatmapContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.heatmapHeader {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.heatmapGrid {
+  display: flex;
+  align-items: center;
+}
+
+.skillsColumn,
+.consensusColumn {
+  margin-right: 20px;
+}
+
+.skillCell {
+  padding: 10px;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.consensusHeader {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.noSelection {
+  font-size: 16px;
+  color: gray;
+}
+.skillWidth {
+  width: 300px;
+}
+/* .skillsColumnEmpty {
+  width: 300px;
+  left: 300px;
+  display: flex;
+  position: absolute;
+} */
+.skillsColumnAlign {
+  /* width: 400px; */
+  position: relative;
+  left: 350px;
+  display: flex;
+  justify-content: start;
+  align-items: center; /* Ensure vertical alignment */
+  gap: 80px;
+}
+
+.colorBoxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100%; /* Stretch to fill available height */
+}
+
+.consensusCell {
+  width: 40px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.consensusCell[data-score="0"] {
+  background-color: #e8f5e9;
+}
+.consensusCell[data-score="1"] {
+  background-color: #c8e6c9;
+}
+.consensusCell[data-score="2"] {
+  background-color: #81c784;
+}
+.consensusCell[data-score="3"] {
+  background-color: #388e3c;
+}
+.consensusCell[data-score="4"] {
+  background-color: #1b5e20;
+}

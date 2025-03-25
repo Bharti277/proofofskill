@@ -1,0 +1,68 @@
+.container {
+  padding: 20px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.backLink {
+  text-decoration: none;
+  color: blue;
+}
+
+.layout {
+  display: flex;
+  margin-top: 20px;
+}
+
+.sidebar {
+  width: 250px;
+  padding: 10px;
+}
+
+.recommendedContainer {
+  border-bottom: 1px solid #ddd;
+}
+
+.additionalContainer {
+  margin-top: 20px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.heatmapContainer {
+  flex: 1;
+  padding: 10px;
+}
+
+.heatmapHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.viewOptions button {
+  margin-right: 10px;
+}
+
+.compareButton {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
