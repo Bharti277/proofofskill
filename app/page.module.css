@@ -14,9 +14,13 @@
 .header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
-
+.posh {
+  color: gray;
+  font-size: 24px;
+}
 .backLink {
   color: #007bff;
   text-decoration: none;
@@ -24,12 +28,12 @@
   margin-right: 20px;
 }
 
-.header h1 {
+/* .header h1 {
   font-size: 20px;
   font-weight: 600;
   margin: 0;
   flex: 1;
-}
+} */
 
 .candidateCount {
   background-color: #e6e6e6;
@@ -45,34 +49,53 @@
 
 .sidebar {
   width: 220px;
-  margin-right: 20px;
+  /* margin-right: 20px; */
+  border: 2px solid black;
 }
-
+.candidateStyle {
+  border-bottom: 2px solid gray;
+  padding: 8px;
+}
+.mostRecommendedBorder {
+  border-bottom: 2px solid black;
+  text-align: center;
+  font-size: 22px;
+}
 .recommendedContainer {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  padding-bottom: 21px;
 }
 
 .recommendedContainer h2 {
-  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin: 0;
+  padding: 4px;
 }
 
 .recommendedContainer ul,
 .additionalContainer ul {
   list-style: none;
   padding: 0;
+  background-color: rgb(233, 231, 231);
   margin: 0;
 }
-
+.recommendedText {
+  border-bottom: 2px solid black;
+  text-align: center;
+}
 .recommendedContainer li,
 .additionalContainer li {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  justify-content: space-between;
+  margin: 0px;
   font-size: 14px;
 }
-
+.candidateContainer {
+}
+.imageIcon {
+  border-radius: 50%;
+}
 .dot {
   width: 8px;
   height: 8px;
@@ -82,6 +105,10 @@
 }
 .addUser {
   cursor: pointer;
+  border-radius: 50%;
+  color: rgb(123, 57, 123);
+  border-color: rgb(123, 57, 123);
+  font-size: 16px;
 }
 .recommendedName {
   color: #007bff;

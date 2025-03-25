@@ -3,6 +3,32 @@ import styles from "../Heatmap.module.css";
 import ColorBoxes from "./ColorBoxes";
 
 const Heatmap = ({ selectedData, selectedCandidate }) => {
+  const [selectedSkills, setSelectedSkills] = useState([]);
+
+  const skills = [
+    "Experience",
+    "Join in",
+    "Minimum salary expected",
+    "Creating Wireframes",
+    "Creating Basic Prototypes",
+    "Applying Gestalt Theory",
+    "Using Figma for Design",
+    "Application of Typography",
+    "Creating Effective Icons",
+    "Optimizing Touch Points",
+    "Addressing User Pain Points",
+    "Conducting User Research",
+    "Applying Questioning Skills",
+    "Conducting Heuristic Evaluation",
+    "Gathering User Feedback",
+    "Conducting Usability Tests",
+    "Creating User Personas",
+    "Conducting Market Research",
+    "Crafting Effective Questions",
+    "Creating Effective Surveys",
+    "Designing User Flows",
+  ];
+
   const allSkills = [
     ...new Set(
       selectedData?.flatMap((user) =>
@@ -12,8 +38,6 @@ const Heatmap = ({ selectedData, selectedCandidate }) => {
       )
     ),
   ];
-
-  const [selectedSkills, setSelectedSkills] = useState([]);
 
   // Handle Skill Selection
   const handleSkillChange = (e) => {
@@ -47,8 +71,8 @@ const Heatmap = ({ selectedData, selectedCandidate }) => {
       {/* Multi-Select Filter */}
       <div className={styles.skillsColumnEmpty}>
         <div className={styles.filter}>
-          <span>Filter by Skills</span>
-          <select multiple value={selectedSkills} onChange={handleSkillChange}>
+          <select value={selectedSkills} onChange={handleSkillChange}>
+            <option value="">Filter</option>
             {allSkills.map((skill, index) => (
               <option key={index} value={skill}>
                 {skill}
@@ -58,46 +82,53 @@ const Heatmap = ({ selectedData, selectedCandidate }) => {
         </div>
       </div>
 
+      {selectedCandidate.length === 0 && (
+        <div className={styles.emptySkill}>
+          <div>
+            {skills.map((skill, i) => (
+              <div key={i}>{skill}</div>
+            ))}
+          </div>
+          <button className={styles.compareButton}>
+            Select candidate to compare
+          </button>
+        </div>
+      )}
       {/* Heatmap Grid */}
-      <div className={styles.heatmapGrid}>
-        <div className={styles.skillsColumn}>
-          <div className={styles.skillsColumnAlign}>
-            {selectedData.map((user) => (
-              <div key={user.id}>
-                <div>
-                  {user.name.split(" ").map((name) => (
-                    <span key={name}>{name.charAt(0)}</span>
-                  ))}
+      {selectedCandidate && (
+        <div className={styles.heatmapGrid}>
+          <div className={styles.skillsColumn}>
+            <div className={styles.skillsColumnAlign}>
+              {selectedData.map((user) => (
+                <div key={user.id}>
+                  <div>
+                    {user.name.split(" ").map((name) => (
+                      <span key={name}>{name.charAt(0)}</span>
+                    ))}
+                  </div>
                 </div>
+              ))}
+            </div>
+
+            {/* Display Filtered Skills */}
+            {filteredSkills.map((skill, index) => (
+              <div key={index} className={styles.skillCell}>
+                <div className={styles.skillWidth}>{skill}</div>
+                {selectedData.map((user) => (
+                  <div key={user.id} className={styles.colorBoxes}>
+                    <ColorBoxes skill={skill} user={user} />
+                  </div>
+                ))}
               </div>
             ))}
           </div>
 
-          {/* Display Filtered Skills */}
-          {filteredSkills.map((skill, index) => (
-            <div key={index} className={styles.skillCell}>
-              <div className={styles.skillWidth}>{skill}</div>
-              {selectedData.map((user) => (
-                <div key={user.id} className={styles.colorBoxes}>
-                  <ColorBoxes skill={skill} user={user} />
-                </div>
-              ))}
-            </div>
-          ))}
+          {/* Consensus Score Column */}
+          {selectedData && <div className={styles.consensusColumn}></div>}
+          <div className={styles.candidatesGridWrapper}>
+            <div className={styles.candidatesGrid}></div>
+          </div>
         </div>
-
-        {/* Consensus Score Column */}
-        {selectedData && <div className={styles.consensusColumn}></div>}
-        <div className={styles.candidatesGridWrapper}>
-          <div className={styles.candidatesGrid}></div>
-        </div>
-      </div>
-
-      {/* Compare Button */}
-      {selectedCandidate.length === 0 && (
-        <button className={styles.compareButton}>
-          Select candidate to compare
-        </button>
       )}
     </div>
   );

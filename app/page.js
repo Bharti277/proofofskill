@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import Heatmap from "./components/Heatmap";
 import styles from "./page.module.css";
+import Image from "next/image";
+import ImageIcon from "../public/image.png";
 
 export default function Home() {
   const [candidates, setCandidates] = useState([]);
@@ -82,10 +84,12 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.main}>
         <div className={styles.header}>
-          <a href="#" className={styles.backLink}>
-            ← Back to My Jobs
-          </a>
-          <h1>Posk_UXDesigner_sr001</h1>
+          <div>
+            <a href="#" className={styles.backLink}>
+              ← Back to My Jobs
+            </a>
+            <h1 className={styles.posh}>Posk_UXDesigner_sr001</h1>
+          </div>
           <span className={styles.candidateCount}>
             {candidates.length} Candidates
           </span>
@@ -94,11 +98,17 @@ export default function Home() {
           <div className={styles.sidebar}>
             {/* First Container: Most recommended */}
             <div className={styles.recommendedContainer}>
-              <h2>Most recommended</h2>
-              <ul>
+              <h2 className={styles.mostRecommendedBorder}>Most recommended</h2>
+              <ul className={styles.candidateContainer}>
                 {candidates.map((candidate) => (
-                  <li key={candidate.id}>
-                    <span className={styles.dot}></span>
+                  <li key={candidate.id} className={styles.candidateStyle}>
+                    <Image
+                      src={ImageIcon}
+                      width={20}
+                      height={20}
+                      className={styles.imageIcon}
+                      alt="Picture of the author"
+                    />
                     <a
                       href="#"
                       className={styles.recommendedName}
@@ -107,28 +117,34 @@ export default function Home() {
                       }}
                     >
                       {candidate.name}
-                      <button
-                        onClick={() => selectCandidate(candidate.id)}
-                        className={styles.addUser}
-                      >
-                        +
-                      </button>
                     </a>
+                    <button
+                      onClick={() => selectCandidate(candidate.id)}
+                      className={styles.addUser}
+                    >
+                      +
+                    </button>
                   </li>
                 ))}
+                <p className={styles.recommendedText}>
+                  Recommendations are based on your skill requirements and
+                  candidates performance
+                </p>
               </ul>
-              <p>
-                Recommendations are based on your skill requirements and
-                candidates performance
-              </p>
             </div>
 
             {/* Second Container:  list of names */}
             <div className={styles.additionalContainer}>
               <ul>
                 {candidates.map((candidate) => (
-                  <li key={candidate.id}>
-                    <span className={styles.dot}></span>
+                  <li key={candidate.id} className={styles.candidateStyle}>
+                    <Image
+                      src={ImageIcon}
+                      width={20}
+                      height={20}
+                      className={styles.imageIcon}
+                      alt="Picture of the author"
+                    />
                     <a
                       href="#"
                       className={styles.recommendedName}
@@ -137,13 +153,13 @@ export default function Home() {
                       }}
                     >
                       {candidate.name}
-                      <button
-                        onClick={() => selectCandidate(candidate.id)}
-                        className={styles.addUser}
-                      >
-                        +
-                      </button>
                     </a>
+                    <button
+                      onClick={() => selectCandidate(candidate.id)}
+                      className={styles.addUser}
+                    >
+                      +
+                    </button>
                   </li>
                 ))}
               </ul>

@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  padding-left: 20px;
 }
 
 .heatmapHeader {
@@ -9,22 +10,23 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  border-bottom: 2px solid black;
 }
 
 .viewOptions {
   display: flex;
   align-items: center;
+  border-bottom: 0;
 }
 
 .viewOptions button {
-  margin-right: 8px;
   padding: 6px 12px;
-  border: none;
+  border: 1px solid black;
+  border-bottom: 0;
   background-color: #e6e6e6;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
-  border-radius: 4px;
   transition: background-color 0.2s;
 }
 
@@ -80,13 +82,13 @@
   background-color: white;
 }
 
-.heatmapGrid {
+/* .heatmapGrid {
   display: flex;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 4px;
   overflow: hidden;
-}
+} */
 
 .skillsColumn {
   width: 100%;
@@ -94,12 +96,10 @@
 }
 
 .skillCell {
-  padding: 10px 12px;
-  border-bottom: 1px solid #ddd;
   font-size: 12px;
   font-weight: 500;
   color: #333;
-  height: 40px;
+  height: 30px;
   display: flex;
   align-items: center;
 }
@@ -188,6 +188,7 @@
 
 .compareButton {
   margin-top: 10px;
+  margin-left: 200px;
   padding: 8px 16px;
   background-color: #28a745;
   color: white;
@@ -202,35 +203,32 @@
 .compareButton:hover {
   background-color: #218838;
 }
-
-.heatmapContainer {
+.emptySkill {
   display: flex;
-  flex-direction: column;
-  padding: 20px;
+  align-items: center;
 }
-
 .heatmapHeader {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.heatmapGrid {
+/* .heatmapGrid {
   display: flex;
   align-items: center;
-}
+} */
 
 .skillsColumn,
 .consensusColumn {
   margin-right: 20px;
 }
 
-.skillCell {
+/* .skillCell {
   padding: 10px;
   font-weight: bold;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
-}
+} */
 
 .consensusHeader {
   margin-bottom: 10px;
@@ -242,7 +240,7 @@
   color: gray;
 }
 .skillWidth {
-  width: 300px;
+  width: 200px;
 }
 /* .skillsColumnEmpty {
   width: 300px;
@@ -251,20 +249,19 @@
   position: absolute;
 } */
 .skillsColumnAlign {
-  /* width: 400px; */
   position: relative;
-  left: 350px;
+  left: 220px;
   display: flex;
   justify-content: start;
   align-items: center; /* Ensure vertical alignment */
-  gap: 80px;
+  gap: 24px;
 }
 
 .colorBoxes {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
+  width: 50px;
   height: 100%; /* Stretch to fill available height */
 }
 
